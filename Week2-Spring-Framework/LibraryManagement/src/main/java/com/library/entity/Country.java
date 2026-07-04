@@ -1,5 +1,7 @@
 package com.library.entity;
 
+import java.util.List;
+import javax.persistence.OneToMany;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,6 +14,9 @@ public class Country {
     private String code;
 
     private String name;
+
+    @OneToMany(mappedBy = "country")
+    private List<State> states;
 
     public Country() {
     }
