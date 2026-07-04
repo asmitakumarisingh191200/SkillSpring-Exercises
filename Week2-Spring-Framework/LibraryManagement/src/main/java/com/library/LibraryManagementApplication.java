@@ -1,20 +1,16 @@
 package com.library;
 
-import com.library.service.BookService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+/**
+ * Exercise 9: Creating a Spring Boot Application
+ * This is the main entry point for the Spring Boot application
+ */
+@SpringBootApplication
 public class LibraryManagementApplication {
 
     public static void main(String[] args) {
-
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        BookService service =
-                (BookService) context.getBean("bookService");
-
-        service.showService();
+        SpringApplication.run(LibraryManagementApplication.class, args);
     }
 }
