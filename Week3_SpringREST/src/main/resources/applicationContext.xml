@@ -10,7 +10,6 @@
           class="com.springrest.Week3_SpringREST.model.Country">
 
         <property name="code" value="IN"/>
-
         <property name="name" value="India"/>
 
     </bean>

@@ -9,13 +9,17 @@ import com.springrest.Week3_SpringREST.model.Country;
 @Service
 public class CountryService {
 
-    public Country getCountry() {
+    private Country country;
+
+    public CountryService() {
 
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Country country = (Country) context.getBean("country");
+        country = context.getBean("country", Country.class);
+    }
 
+    public Country getCountry() {
         return country;
     }
 }
