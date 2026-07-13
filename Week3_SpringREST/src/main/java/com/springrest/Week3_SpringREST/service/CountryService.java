@@ -1,5 +1,7 @@
 package com.springrest.Week3_SpringREST.service;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
@@ -9,17 +11,27 @@ import com.springrest.Week3_SpringREST.model.Country;
 @Service
 public class CountryService {
 
-    private Country country;
+    private List<Country> countryList;
 
+    @SuppressWarnings("unchecked")
     public CountryService() {
 
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
+                new ClassPathXmlApplicationContext("country.xml");
 
-        country = context.getBean("country", Country.class);
+        countryList = (List<Country>) context.getBean("countryList");
     }
 
-    public Country getCountry() {
-        return country;
+    public Country getCountry(String code) {
+
+        for (Country country : countryList) {
+
+            if (country.getCode().equalsIgnoreCase(code)) {
+                return country;
+            }
+
+        }
+
+        return null;
     }
 }
